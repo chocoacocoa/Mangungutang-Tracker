@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Minified version -->
+    <link rel="stylesheet" href="https://unpkg.com/simpledotcss/simple.min.css">
+
+    <!-- Un-minified version -->
+    <link rel="stylesheet" href="https://unpkg.com/simpledotcss/simple.css">
+</head>
+
+<body>
+    <header>
+        <h3>mangungutang tracker</h3>
+        <!-- <a href="fromAi.html">fromAi web</a> -->
+         <p>hindi pa tapos</p>
+    </header>
+    <main>
+        <fieldset>
+            <legend>Add New Utang</legend>
+            <form>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="namer" required>
+                <label for="amount">Amount (Phillipine' Peso)</label>
+                <input type="number" name="amount" id="amount" required>
+                <label for="date">Date</label>
+                <input type="date" name="date" id="date" required>
+                <label for="description">Description</label>
+                <textarea name="description" id="description"></textarea>
+            </form>
+            <div>
+                <button id="addDebt">Add Debt</button>
+                <button id="clear">Clear</button>
+            </div>
+        </fieldset>
+        <h5 id="totalDebt">Total Debt: wala pang function to boi</h5>
+        <button id="deleteData">deleteAll</button>
+        <div id="loggers">
+            this will be a prototype, the code's innit may go to script file.
+        </div>
+    </main>
+</body>
+<footer>
+    <small>&copy;chocoacocoa</small>
+</footer>
+<script src="script2.js"></script>
+
+</html>

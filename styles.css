@@ -1,0 +1,22 @@
+*{
+    margin-bottom: 0;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+.logField{
+    margin-bottom: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main{
+    margin-bottom: 10em;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+}
