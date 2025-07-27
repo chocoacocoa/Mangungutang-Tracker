@@ -1,22 +1,52 @@
-*{
-    margin-bottom: 0;
+* {
+  margin-bottom: 0;
 }
-form{
-    display: flex;
-    flex-direction: column;
+form {
+  display: flex;
+  flex-direction: column;
 }
-.logField{
-    margin-bottom: 0;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.logField {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-main{
-    margin-bottom: 10em;
+
+main {
+  margin-bottom: 10em;
 }
-footer{
-    position: fixed;
-    bottom: 0;
-    width: 100vw;
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+
+.nyf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+.nyf div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-block: 100vh;
+  padding-inline: 20vw;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.nyf img{
+    width: 60vmin;
 }

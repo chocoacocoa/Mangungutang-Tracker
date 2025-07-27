@@ -9,6 +9,7 @@ console.log(data.name);
 console.log(data.amount[0]);
 console.log(data.date[0]);
 console.log(data.description[0]);
+let main = document.getElementById("main");
 const namer = document.getElementById("namer");
 const amount = document.getElementById("amount");
 const date = document.getElementById("date");
@@ -18,13 +19,31 @@ const addDebt = document.getElementById("addDebt");
 const clear = document.getElementById("clear");
 const deleteData1 = document.getElementById("deleteData");
 //----------------------------------------------------------------------------
-const edit = document.getElementById("edit");
-const paid = document.getElementById("paid");
+let edit;
+let paid;
 
 //----------------------------------------------------------------------------
-let logField = document.querySelectorAll("logField");
+let logField = document.getElementById("logField");
 let loggers = document.getElementById("loggers");
+//----------------------------------------------------------------------------
+let mainNyf = document.getElementById("main");
+let nyfY;
+//----------------------------------------------------------------------------
 
+function nyff() {
+  //not finished yet function
+  mainNyf.innerHTML = `
+  <div class="nyf">
+             <div>
+                <img src="/media/pic.jpg">
+                <h4>Sorry po, hindi pa po tapos</h4>
+                <button id="nyfY">Oki pow</button>
+            </div>
+        </div>
+ 
+`;
+  nyfY = document.getElementById("nyfY");
+}
 function deleteData() {
   data.name = [];
   data.amount = [];
@@ -44,12 +63,17 @@ function load() {
                 <h6 id="borrowerDescription">Description: <u>${data.description[i]}</u></h6>
                 </div>
                 <div>
-                <button id="edit">Edit</button>
-                <button id="paid">Paid</button>
+                <button class="edit">Edit</button>
+                <button class="paid">Paid</button>
                 </div>
             </fieldset>
+            <br>
         `;
   }
+  edit = document.querySelectorAll(".edit");
+  paid = document.querySelectorAll(".paid");
+  
+  
 }
 
 function save() {
@@ -59,14 +83,15 @@ function save() {
 load();
 
 addDebt.addEventListener("click", function () {
-  data.name.push(namer.value);
-  data.amount.push(amount.value);
-  data.date.push(date.value);
-  data.description.push(description.value);
-  //   localStorage.setItem("userData", JSON.stringify(data));
-  save();
-  const getData = localStorage.getItem("userData");
-  loggers.innerHTML += `
+  if (namer.value !== "") {
+    data.name.push(namer.value);
+    data.amount.push(amount.value);
+    data.date.push(date.value);
+    data.description.push(description.value);
+    //   localStorage.setItem("userData", JSON.stringify(data));
+    save();
+    const getData = localStorage.getItem("userData");
+    loggers.innerHTML += `
         <fieldset class="logField">
                 <div>
               <h5>name: ${data.name.at(-1)}</h5>
@@ -77,11 +102,13 @@ addDebt.addEventListener("click", function () {
                 )}</u></h6>
                 </div>
                 <div>
-                <button id="edit">Edit</button>
-                <button id="paid">Paid</button>
+                <button class="edit">Edit</button>
+                <button class="paid">Paid</button>
                 </div>
             </fieldset>
+            <br>
         `;
+  }
 });
 
 deleteData1.addEventListener("click", function () {
@@ -89,4 +116,28 @@ deleteData1.addEventListener("click", function () {
   localStorage.setItem("userData", JSON.stringify(data));
   alert("data deleted");
   location.reload();
+});
+
+clear.addEventListener("click", function () {
+  nyff();
+  nyfY.addEventListener("click", function () {
+    location.reload();
+  });
+});
+document.addEventListener('click', function(e) {
+  // Handle edit buttons
+  if (e.target && e.target.classList.contains('edit')) {
+    nyff();
+    nyfY.addEventListener("click", function () {
+      location.reload();
+    });
+  }
+  
+  // Handle paid buttons
+  if (e.target && e.target.classList.contains('paid')) {
+    nyff();
+    nyfY.addEventListener("click", function () {
+      location.reload();
+    });
+  }
 });
