@@ -1,8 +1,8 @@
 let data = JSON.parse(localStorage.getItem("userData")) || {
-  name: ["cholo"],
-  amount: [20],
-  date: ["2006-07-28"],
-  description: ["hi"],
+  name: [],
+  amount: [],
+  date: [],
+  description: [],
 };
 localStorage.setItem("userData", JSON.stringify(data));
 console.log(data.name);
