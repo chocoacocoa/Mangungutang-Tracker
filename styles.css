@@ -11,7 +11,9 @@ form {
   justify-content: space-between;
   align-items: center;
 }
-
+.logField h5{
+  margin-top: 0;
+}
 main {
   margin-bottom: 10em;
 }
@@ -50,3 +52,39 @@ footer {
 .nyf img{
     width: 60vmin;
 }
+
+
+.loggers{
+  padding-top: 10px;
+}
+
+header > p:nth-of-type(2){
+  cursor: pointer;
+  font-size: 5vmin;
+  /* background-color: red; */
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding-inline: 10px;
+  user-select: none;
+}
+
+#aboutSection{
+  position: fixed;
+  height: 100vh;
+  background: black;
+  top: 0;
+  
+  left: 0vw;
+  width: 50vw;
+  
+  padding-inline: 20px;
+  text-align: justify;
+  transition: 1s;
+
+  overflow: auto;
+}
+

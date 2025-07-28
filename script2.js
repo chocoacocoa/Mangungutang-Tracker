@@ -19,19 +19,22 @@ const addDebt = document.getElementById("addDebt");
 const clear = document.getElementById("clear");
 const deleteData1 = document.getElementById("deleteData");
 //----------------------------------------------------------------------------
+let totalDebt = document.getElementById("totalDebt");
 let edit;
 let paid;
-
 //----------------------------------------------------------------------------
 let logField = document.getElementById("logField");
 let loggers = document.getElementById("loggers");
 //----------------------------------------------------------------------------
 let mainNyf = document.getElementById("main");
 let nyfY;
+let totalDebtSum = 0;
+let header = document.getElementById("header");
+let aboutSection = document.getElementById("aboutSection");
+let aboutButton = document.getElementById('aboutButton');
 //----------------------------------------------------------------------------
 
 function nyff() {
-  //not finished yet function
   mainNyf.innerHTML = `
   <div class="nyf">
              <div>
@@ -44,6 +47,7 @@ function nyff() {
 `;
   nyfY = document.getElementById("nyfY");
 }
+
 function deleteData() {
   data.name = [];
   data.amount = [];
@@ -51,16 +55,43 @@ function deleteData() {
   data.description = [];
 }
 
+function about() {
+  aboutButton.addEventListener("click", function () {
+    // if(aboutSection.style.animation == "aboutMoveO"){
+    //   aboutSection.style.animation -= "aboutMoveO";
+    //   aboutSection.style.animation += "aboutMoveE";
+    // }else{
+    //   aboutSection.style.animation -= "aboutMoveE";
+    //   aboutSection.style.animation += "aboutMoveO";
+    // }
+    if (aboutSection.style.left !== "0vw") {
+      aboutSection.style.left = "0vw";
+      
+    } else {
+      aboutSection.style.left = "-50vw";
+    }
+  });
+}
+about();
+
+function totalDebtSummation() {
+  for (let i = 0; i < data.amount.length; i++) {
+    totalDebtSum += Number(data.amount[i]);
+  }
+  console.log("total: ", totalDebtSum);
+}
+
 function load() {
+  totalDebtSummation();
+  totalDebt.innerHTML += totalDebtSum;
   for (let i = 0; i < data.name.length; i++) {
-    // console.log(data.name[i]);
     loggers.innerHTML += `
         <fieldset class="logField">
                 <div>
-                <h5>name: ${data.name[i]}</h5>
-                <h6 id="borrowed">Utang: <u>₱${data.amount[i]}</u></h6>
-                <h6 id="borrowedDate">Date: <u>${data.date[i]}</u></h6>
-                <h6 id="borrowerDescription">Description: <u>${data.description[i]}</u></h6>
+                <h5>Name: ${data.name[i]}</h5>
+                <h6 id="borrowed">Utang: <u>₱ ${data.amount[i]}</u></h6>
+                <h6 id="borrowedDate">Date: ${data.date[i]}</h6>
+                <h6 id="ⓘborrowerDescription">Description: ${data.description[i]}</h6>
                 </div>
                 <div>
                 <button class="edit">Edit</button>
@@ -72,8 +103,6 @@ function load() {
   }
   edit = document.querySelectorAll(".edit");
   paid = document.querySelectorAll(".paid");
-  
-  
 }
 
 function save() {
@@ -88,26 +117,8 @@ addDebt.addEventListener("click", function () {
     data.amount.push(amount.value);
     data.date.push(date.value);
     data.description.push(description.value);
-    //   localStorage.setItem("userData", JSON.stringify(data));
+
     save();
-    const getData = localStorage.getItem("userData");
-    loggers.innerHTML += `
-        <fieldset class="logField">
-                <div>
-              <h5>name: ${data.name.at(-1)}</h5>
-                <h6 id="borrowed">Utang: <u>₱${data.amount.at(-1)}</u></h6>
-                <h6 id="borrowedDate">Date: <u>${data.date.at(-1)}</u></h6>
-                <h6 id="borrowerDescription">Description: <u>${data.description.at(
-                  -1
-                )}</u></h6>
-                </div>
-                <div>
-                <button class="edit">Edit</button>
-                <button class="paid">Paid</button>
-                </div>
-            </fieldset>
-            <br>
-        `;
   }
 });
 
@@ -124,17 +135,14 @@ clear.addEventListener("click", function () {
     location.reload();
   });
 });
-document.addEventListener('click', function(e) {
-  // Handle edit buttons
-  if (e.target && e.target.classList.contains('edit')) {
+document.addEventListener("click", function (e) {
+  if (e.target && e.target.classList.contains("edit")) {
     nyff();
     nyfY.addEventListener("click", function () {
       location.reload();
     });
   }
-  
-  // Handle paid buttons
-  if (e.target && e.target.classList.contains('paid')) {
+  if (e.target && e.target.classList.contains("paid")) {
     nyff();
     nyfY.addEventListener("click", function () {
       location.reload();
