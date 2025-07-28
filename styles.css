@@ -78,7 +78,7 @@ header > p:nth-of-type(2){
   background: black;
   top: 0;
   
-  left: 0vw;
+  left: -50vw;
   width: 50vw;
   
   padding-inline: 20px;
