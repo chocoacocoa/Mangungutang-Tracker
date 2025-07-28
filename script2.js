@@ -31,7 +31,9 @@ let nyfY;
 let totalDebtSum = 0;
 let header = document.getElementById("header");
 let aboutSection = document.getElementById("aboutSection");
-let aboutButton = document.getElementById('aboutButton');
+let aboutButton = document.getElementById("aboutButton");
+const today = new Date();
+let id = 0;
 //----------------------------------------------------------------------------
 
 function nyff() {
@@ -66,7 +68,6 @@ function about() {
     // }
     if (aboutSection.style.left !== "0vw") {
       aboutSection.style.left = "0vw";
-      
     } else {
       aboutSection.style.left = "-50vw";
     }
@@ -84,10 +85,13 @@ function totalDebtSummation() {
 function load() {
   totalDebtSummation();
   totalDebt.innerHTML += totalDebtSum;
+
   for (let i = 0; i < data.name.length; i++) {
+    id++;
     loggers.innerHTML += `
         <fieldset class="logField">
                 <div>
+                <p id="user${id}">ID: ${id}</p>
                 <h5>Name: ${data.name[i]}</h5>
                 <h6 id="borrowed">Utang: <u>₱ ${data.amount[i]}</u></h6>
                 <h6 id="borrowedDate">Date: ${data.date[i]}</h6>
@@ -100,11 +104,10 @@ function load() {
             </fieldset>
             <br>
         `;
+    edit = document.querySelectorAll(".edit");
+    paid = document.querySelectorAll(".paid");
   }
-  edit = document.querySelectorAll(".edit");
-  paid = document.querySelectorAll(".paid");
 }
-
 function save() {
   localStorage.setItem("userData", JSON.stringify(data));
 }
@@ -117,8 +120,10 @@ addDebt.addEventListener("click", function () {
     data.amount.push(amount.value);
     data.date.push(date.value);
     data.description.push(description.value);
-
     save();
+    setTimeout(() => {
+      location.reload();
+    }, 100);
   }
 });
 
@@ -130,11 +135,12 @@ deleteData1.addEventListener("click", function () {
 });
 
 clear.addEventListener("click", function () {
-  nyff();
-  nyfY.addEventListener("click", function () {
-    location.reload();
-  });
+  namer.value = "";
+  amount.value = null;
+  date.value = "";
+  description.value = "";
 });
+
 document.addEventListener("click", function (e) {
   if (e.target && e.target.classList.contains("edit")) {
     nyff();
@@ -149,3 +155,7 @@ document.addEventListener("click", function (e) {
     });
   }
 });
+
+function editButton(){
+
+}
