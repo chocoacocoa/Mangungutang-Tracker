@@ -91,7 +91,7 @@ footer {
   align-items: center;
   flex-direction: column;
   gap: 29px;
-  padding: 50px;
+  padding-bottom: 50px;
 }
 #paidVerify > div {
   /* From https://css.glass */
