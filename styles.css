@@ -11,7 +11,7 @@ form {
   justify-content: space-between;
   align-items: center;
 }
-.logField h5{
+.logField h5 {
   margin-top: 0;
 }
 main {
@@ -49,16 +49,15 @@ footer {
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
-.nyf img{
-    width: 60vmin;
+.nyf img {
+  width: 60vmin;
 }
 
-
-.loggers{
+.loggers {
   padding-top: 10px;
 }
 
-header > p:nth-of-type(2){
+header > p:nth-of-type(2) {
   cursor: pointer;
   font-size: 5vmin;
   /* background-color: red; */
@@ -72,19 +71,48 @@ header > p:nth-of-type(2){
   user-select: none;
 }
 
-#aboutSection{
+#aboutSection {
   position: fixed;
   height: 100vh;
   background: black;
   top: 0;
-  
+
   left: -50vw;
   width: 50vw;
-  
+
   padding-inline: 20px;
   text-align: justify;
   transition: 1s;
 
   overflow: auto;
 }
+#paidVerify > div{
+  /* From https://css.glass */
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#paidVerify > div > div{
+  width: fit-content;
+  border: solid 5px black;
+  border-radius: 10px;
+  padding: 5px;
+}
+#paidVerify > div > div > span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

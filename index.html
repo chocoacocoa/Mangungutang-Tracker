@@ -47,15 +47,22 @@
                 <input type="date" name="date" id="date" required>
                 <label for="description">Description</label>
                 <textarea name="description" id="description"></textarea>
+
+                <button id="addDebt">Add Debt</button>
+                <button id="clear">Clear</button>
             </form>
-            <button id="addDebt">Add Debt</button>
-            <button id="clear">Clear</button>
+            <div>
+
+            </div>
         </fieldset>
-        <h5 id="totalDebt">Total Debt: ₱ </h5>
-        <button id="deleteData">deleteAll</button>
-        <div id="loggers">
-            <!-- this will be a prototype, the code's innit may go to script file. -->
-        </div>
+        <!-- <h5 id="totalDebt">Total Debt: ₱ </h5> -->
+        <fieldset>
+            <legend id="totalDebt"><i><b>Total Debt: ₱</b></i></legend>
+            <button id="deleteData">All Paid</button>
+            <div id="loggers">
+                <!-- this is where the utangs will be logged into -->
+            </div>
+        </fieldset>
     </main>
 </body>
 
