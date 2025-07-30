@@ -86,7 +86,7 @@ header > p:nth-of-type(2) {
 
   overflow: auto;
 }
-#paidVerify > div{
+#paidVerify > div {
   /* From https://css.glass */
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0);
@@ -104,15 +104,50 @@ header > p:nth-of-type(2) {
   justify-content: center;
   align-items: center;
 }
-#paidVerify > div > div{
+#paidVerify > div > div {
   width: fit-content;
   border: solid 5px black;
   border-radius: 10px;
   padding: 5px;
 }
-#paidVerify > div > div > span{
+#paidVerify > div > div > span {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+@media only screen and (min-width: 1024px) {
+  #aboutSection{
+    z-index: 99;
+  }
+  body{
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+  }
+  main {
+    /* background-color: red; */
+    width: 100vw;
+    position: sticky;
+    right: 0;
+    margin: 0;
+
+
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: no-wrap;
+    flex-grow: 1;
+  }
+
+  fieldset{
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+  }
+
+  #loggers > fieldset{
+    flex-direction: row;
+  }
 }
