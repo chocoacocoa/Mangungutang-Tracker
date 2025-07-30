@@ -57,9 +57,9 @@ footer {
   padding-top: 10px;
 }
 
-header > p:nth-of-type(2) {
+#aboutButton {
   cursor: pointer;
-  font-size: 5vmin;
+  font-size: 2em;
   /* background-color: red; */
   width: fit-content;
   height: fit-content;
@@ -139,13 +139,11 @@ header > p:nth-of-type(2) {
     position: sticky;
     right: 0;
     margin: 0;
-
-
-
     display: flex;
     justify-content: space-between;
     flex-wrap: no-wrap;
     flex-grow: 1;
+    padding: 2em;
   }
 
   fieldset{
@@ -156,5 +154,19 @@ header > p:nth-of-type(2) {
 
   #loggers > fieldset{
     flex-direction: row;
+  }
+  #aboutButton{
+    font-size: 2em;
+  }
+}
+@media (prefers-color-scheme: dark){
+  #aboutSection{
+    background-color: #212121;
+  }
+}
+@media (prefers-color-scheme: light){
+  #aboutSection{
+    background-color: white;
+    color: black;
   }
 }
