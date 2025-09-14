@@ -159,6 +159,12 @@ footer {
     font-size: 2em;
   }
 }
+
+@media only screen and (max-width: 600px){
+.feedbackFieldset{
+  font-size: 1.1dvh;
+}
+}
 @media (prefers-color-scheme: dark){
   #aboutSection{
     background-color: #212121;
