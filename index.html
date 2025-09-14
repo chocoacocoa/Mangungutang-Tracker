@@ -12,13 +12,24 @@
     <!-- Un-minified version -->
     <link rel="stylesheet" href="https://unpkg.com/simpledotcss/simple.css">
     <link rel="icon" type="image/x-icon" href="./media/pavicon.ico">
+
+    <!-- emailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "6kcpS3Q6h8mUv1kDK",
+            });
+        })();
+    </script>
 </head>
 
 <body>
     <header id="header">
         <h3>mangungutang tracker</h3>
         <!-- <a href="fromAi.html">fromAi web</a> -->
-        <p>version 1.0</p>
+        <p>version 1.1</p>
         <p id="aboutButton">ⓘ</p>
         <div id="aboutSection">
             <h3>ABOUT</h3>
@@ -37,6 +48,23 @@
                 <h3>Developed by chocoacocoa</h3>
                 <img src="/media/chocoacocoa.png">
             </div>
+            <section>
+                <div>
+                    <fieldset>
+                        <legend>Comments & Suggestions</legend>
+                        <form action="">
+                            <label for="name">Name</label>
+                            <input id="feedbackname" type="text" name="name" placeholder="ex. chocoacocoa">
+                            <label for="email">email</label>
+                            <input id="feedbackemail" type="email" placeholder="user@user.com" id="commentatorEmail">
+                            <label for="userComment">Suggestion/Comment</label>
+                            <textarea name="userComment" id="feedbackFeedback"></textarea>
+                           
+                        </form>
+                 <button id="feedbackSubmit">Submit</button>
+                    </fieldset>
+                </div>
+            </section>
         </div>
     </header>
     <main id="main">

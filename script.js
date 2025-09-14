@@ -164,6 +164,23 @@ function newUtang() {
     console.log("New object added: ", newEntry);
   });
 }
+
+
+//USERFEEDBACK FUNCTIONS
+const feedbackButton = document.getElementById('feedbackSubmit');
+function sendFeedback(){
+  const feedbackParams = {
+    feedbackname : document.getElementById('feedbackname').value,
+    feedbackemail : document.getElementById('feedbackemail').value,
+    feedbackFeedback : document.getElementById('feedbackFeedback').value
+  }
+
+  emailjs.send("service_rr839h4", "template_g0j8rc3", feedbackParams).then(alert("Thank you for your feedback!"));
+}
+feedbackButton.addEventListener('click', ()=>{
+  sendFeedback();
+});
+//USERFEEDBACK FUNCTIONS
 //FUNCTIONS----------------------------------------------------------------------------
 
 about();
